@@ -11,13 +11,15 @@ namespace LasVegasMagicalShow
         protected int id;
         protected string name;
         protected string password;
+        protected int level;
 
         // Constructor
-        protected Person(int id, string name, string password)
+        protected Person(int id, string name, string password, int level)
         {
             this.id = id;
             this.name = name;
             this.password = password;
+            this.level = level;
         }
 
         // Id properties
@@ -39,6 +41,12 @@ namespace LasVegasMagicalShow
         {
             get { return password; }
             set { password = value; }
+        }
+
+        public int Level
+        {
+            get { return level; }
+            set { level = value; }
         }
 
     }
