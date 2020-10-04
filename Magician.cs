@@ -11,7 +11,7 @@ namespace LasVegasMagicalShow
         protected ArrayList favorite_tricks;
 
         // Constructor
-        public Magician(int id, string name, string password) : base(id, name, password)
+        public Magician(int id, string name, string password, int level) : base(id, name, password, level)
         {
             favorite_tricks = new ArrayList();
         }
