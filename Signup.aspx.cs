@@ -13,7 +13,12 @@ namespace LasVegasMagicalShow
         ArrayList userarray;
         protected void Page_Load(object sender, EventArgs e)
         {
-            userarray = new ArrayList();
+            if (Application["users"] == null)
+            {
+                userarray = new ArrayList();
+                Application["users"] = userarray;
+            }
+            userarray = (ArrayList)Application["users"];
             TextBox_sp_password.TextMode = TextBoxMode.Password;
         }
 
@@ -21,15 +26,13 @@ namespace LasVegasMagicalShow
         {
             if (RadioButtonList_usertype.SelectedValue == "Magician")
             {
-                Magician m = new Magician(Convert.ToInt32(userarray.Count + 1), TextBox_sp_username.Text, TextBox_sp_password.Text, Convert.ToInt32(RadioButtonList_usertype.SelectedIndex));
-                userarray = (ArrayList)Application["myusercollection"];
+                Magician m = new Magician(Convert.ToInt32(userarray.Count + 1), TextBox_sp_username.Text, TextBox_sp_password.Text, 1);
                 userarray.Add(m);
                 Response.Redirect("Index.aspx");
             }
             else
             {
-                Staff s = new Staff(Convert.ToInt32(userarray.Count + 1), TextBox_sp_username.Text, TextBox_sp_password.Text, Convert.ToInt32(RadioButtonList_usertype.SelectedIndex));
-                userarray = (ArrayList)Application["myusercollection"];
+                Staff s = new Staff(Convert.ToInt32(userarray.Count + 1), TextBox_sp_username.Text, TextBox_sp_password.Text, 2);
                 userarray.Add(s);
                 Response.Redirect("Index.aspx");
             }

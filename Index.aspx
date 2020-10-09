@@ -38,6 +38,7 @@
             <br />
             <asp:Button ID="Button_signup" runat="server" CssClass="auto-style3" style="text-align: left" Text="SIGNUP" Width="90px" OnClick="Button_signup_Click" />
         </div>
+        <asp:ListBox ID="ListBox1" runat="server" Height="203px" Width="750px"></asp:ListBox>
     </form>
 </body>
 </html>

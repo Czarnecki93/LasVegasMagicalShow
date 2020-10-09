@@ -10,19 +10,24 @@ namespace LasVegasMagicalShow
 {
     public partial class Index : System.Web.UI.Page
     {
-        ArrayList userarray;
+        ArrayList localarray;
         protected void Page_Load(object sender, EventArgs e)
         {
+            localarray = (ArrayList)Application["users"];
             TextBox_password.TextMode = TextBoxMode.Password;
             // If TextBoxUsername.Text exists in arraylist && password match, login and redirect to Admin.aspx
             // Else display "No user with these credentials found."
-            if (Application["myusercollection"] == null)
+            if (localarray != null)
             {
-                userarray = new ArrayList();
-                Application["myusercollection"] = userarray;
+                for (int i = 0; i < localarray.Count; i++)
+                {
+                    ListBox1.Items.Add(localarray[i].ToString());
+                }
             }
-            userarray = (ArrayList)Application["myusercollection"];
-
+            else
+            {
+                ListBox1.Items.Add("No users");
+            }
         }
 
         protected void Button_signup_Click(object sender, EventArgs e)
@@ -32,11 +37,12 @@ namespace LasVegasMagicalShow
 
         protected void Button_login_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < userarray.Count; i++)
+            for (int i = 0; i < localarray.Count; i++)
             {
-                if (userarray[i].ToString() == (TextBox_username.Text))
+                if (localarray[i].ToString().Contains(TextBox_username.Text))
                 {
                     Response.Redirect("Admin.aspx");
+                    break;
                 }
             }
         }

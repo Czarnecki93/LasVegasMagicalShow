@@ -49,5 +49,10 @@ namespace LasVegasMagicalShow
             set { level = value; }
         }
 
+        public override string ToString()
+        {
+            return "id: " + id + ", name: " + name + ", password: " + password + ", level: " + level;
+        }
+
     }
 }
