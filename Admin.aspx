@@ -11,6 +11,9 @@
         <div>
             <asp:Label ID="Label_login" runat="server" Text="Loginlabel"></asp:Label>
         </div>
+        <br />
+        <br />
+        <asp:ListBox ID="ListBoxUsers" runat="server" Height="208px" Width="761px"></asp:ListBox>
     </form>
 </body>
 </html>

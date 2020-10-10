@@ -44,6 +44,8 @@ namespace LasVegasMagicalShow
                 {
                     user = localarray[i];
                     Session["currentUser"] = user;
+                    Session["currentLevel"] = user.GetType().Name;
+                    localarray = (ArrayList)Application["users"];
                     Response.Redirect("Admin.aspx");
                     break;
                 }

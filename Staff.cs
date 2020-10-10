@@ -22,7 +22,7 @@ namespace LasVegasMagicalShow
         }
         public override string ToString()
         {
-            return name;
+            return name + " - " + level;
         }
     }
 }

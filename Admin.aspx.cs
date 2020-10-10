@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,34 @@ namespace LasVegasMagicalShow
 {
     public partial class Admin : System.Web.UI.Page
     {
+        object user;
+        object userlvl;
+        ArrayList allusers;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label_login.Text = "Logged in as: " + Session["currentUser"];
+            allusers = (ArrayList)Application["users"];
+            user = Session["currentUser"];
+            userlvl = Session["currentLevel"];
+            Label_login.Text = "Logged in as: " + user;
+            if (userlvl.ToString() == "Magician")
+            {
+                for (int i = 0; i < allusers.Count; i++)
+                {
+                    if (allusers[i].GetType().Name == "Magician")
+                    {
+                        ListBoxUsers.Items.Add(allusers[i].ToString());
+                    }
+                }
+            }
+            else
+            {
+                foreach (var user in allusers)
+                {
+                    ListBoxUsers.Items.Add(user.ToString());
+                }
+            }
+            
+            
             // Be able to edit info. 
             // If magician
             // Be able to edit favorite tricks
