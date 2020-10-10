@@ -11,7 +11,11 @@
         <div>
             <asp:Label ID="Label_login" runat="server" Text="Loginlabel"></asp:Label>
         </div>
-        <br />
+        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+&nbsp;Name<br />
+        <asp:TextBox ID="TextBoxPass" runat="server"></asp:TextBox>
+&nbsp;Password<br />
+        <asp:Button ID="ButtonUpdate" runat="server" OnClick="ButtonUpdate_Click" Text="Update info" />
         <br />
         <asp:ListBox ID="ListBoxUsers" runat="server" Height="208px" Width="761px"></asp:ListBox>
     </form>

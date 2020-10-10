@@ -50,5 +50,35 @@ namespace LasVegasMagicalShow
             // Else level == Staff
             // Be able to see both staff and magicians.
         }
+
+        protected void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            allusers = (ArrayList)Application["users"];
+            for (int i = 0; i < allusers.Count; i++)
+            {
+                if (allusers[i].ToString() == user.ToString())
+                {
+                    if (userlvl.ToString() == "Magician")
+                    {
+                        Magician m = (Magician)allusers[i];
+                        m.Name = TextBoxName.Text;
+                        m.Password = TextBoxPass.Text;
+                        user = m;
+                        Session["currentUser"] = user;
+                        Response.Redirect("Admin.aspx");
+                    }
+                    else
+                    {
+                        Staff s = (Staff)allusers[i];
+                        s.Name = TextBoxName.Text;
+                        s.Password = TextBoxPass.Text;
+                        user = s;
+                        Session["currentUser"] = user;
+                        Response.Redirect("Admin.aspx");
+                    }
+                    
+                }
+            }
+        }
     }
 }
