@@ -17,12 +17,14 @@
         <asp:Label ID="Userinfo" runat="server" Text="Userinfo label"></asp:Label>
         <br />
         <br />
-        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
-        New name<br />
-        <asp:TextBox ID="TextBoxPass" runat="server"></asp:TextBox>
-        New password<br />
-        <asp:TextBox ID="TextBoxSal" runat="server"></asp:TextBox>
-        New salary<br />
+        <asp:TextBox ID="TextBoxName" runat="server">New name</asp:TextBox>
+        <br />
+        <asp:TextBox ID="TextBoxPass" runat="server">New password</asp:TextBox>
+        <br />
+        <asp:TextBox ID="TextBoxSal" runat="server">New salary</asp:TextBox>
+        <br />
+        <asp:TextBox ID="TextBoxFavTricks" runat="server">New tricks</asp:TextBox>
+        <br />
         <br />
         <asp:Button ID="ButtonUpdate" runat="server" OnClick="ButtonUpdate_Click" Text="Update info" />
         <br />

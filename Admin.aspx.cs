@@ -22,7 +22,8 @@ namespace LasVegasMagicalShow
             if (userlvl.ToString() == "Magician")
             {
                 Magician currentm = (Magician)user;
-                Userinfo.Text = "<li> Name: " + currentm.Name + "</li>" + "<li> Level: " + userlvl.ToString() + "</li>" + "<li> Password: " + currentm.Password + "</li>";
+                TextBoxSal.Visible = false;
+                Userinfo.Text = "<li> Name: " + currentm.Name + "</li>" + "<li> Level: " + userlvl.ToString() + "</li>" + "<li> Password: " + currentm.Password + "</li>" + "<li> Favorite tricks: " + currentm.displayTricks() + " </ li > ";
                 for (int i = 0; i < allusers.Count; i++)
                 {
                     if (allusers[i].GetType().Name == "Magician")
@@ -34,6 +35,7 @@ namespace LasVegasMagicalShow
             else
             {
                 Staff currents = (Staff)user;
+                TextBoxFavTricks.Visible = false;
                 Userinfo.Text = "<li> Name: " + currents.Name + "</li>" + "<li> Level: " + userlvl.ToString() + "</li>" + "<li> Password: " + currents.Password + "</li>" + "<li> Salary: " + currents.Salary + "</li>";
 
                 foreach (var user in allusers)
@@ -54,6 +56,7 @@ namespace LasVegasMagicalShow
                         Magician m = (Magician)allusers[i];
                         m.Name = TextBoxName.Text;
                         m.Password = TextBoxPass.Text;
+                        m.AddFavoriteTrick(TextBoxFavTricks.Text);
                         user = m;
                         Session["currentUser"] = user;
                         Response.Redirect("Admin.aspx");
