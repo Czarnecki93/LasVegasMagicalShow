@@ -20,5 +20,9 @@ namespace LasVegasMagicalShow
         {
             salary = 20000;
         }
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

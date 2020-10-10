@@ -17,5 +17,9 @@ namespace LasVegasMagicalShow
             this.password = password;
             this.level = level;
         }
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

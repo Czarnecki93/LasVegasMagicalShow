@@ -11,6 +11,7 @@ namespace LasVegasMagicalShow
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label_login.Text = "Logged in as: " + Session["currentUser"];
             // Be able to edit info. 
             // If magician
             // Be able to edit favorite tricks

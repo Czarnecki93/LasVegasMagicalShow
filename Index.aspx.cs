@@ -11,6 +11,7 @@ namespace LasVegasMagicalShow
     public partial class Index : System.Web.UI.Page
     {
         ArrayList localarray;
+        object user;
         protected void Page_Load(object sender, EventArgs e)
         {
             localarray = (ArrayList)Application["users"];
@@ -39,8 +40,10 @@ namespace LasVegasMagicalShow
         {
             for (int i = 0; i < localarray.Count; i++)
             {
-                if (localarray[i].ToString().Contains(TextBox_username.Text))
+                if (localarray[i].ToString().Contains(TextBox_username.Text) && localarray[i].ToString().Contains(TextBox_password.Text))
                 {
+                    user = localarray[i];
+                    Session["currentUser"] = user;
                     Response.Redirect("Admin.aspx");
                     break;
                 }
