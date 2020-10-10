@@ -15,14 +15,19 @@ namespace LasVegasMagicalShow
             this.salary = salary;
         }
 
-        // Constructor override with default salary
         public Staff(int id, string name, string password, int level) : base(id, name, password, level)
         {
-            salary = 20000;
+            salary = 2000;
         }
+        public int Salary
+        {
+            get { return salary; }
+            set { salary = value; }
+        }
+
         public override string ToString()
         {
-            return name + " - " + level;
+            return name + " - Staff";
         }
     }
 }

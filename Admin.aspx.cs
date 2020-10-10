@@ -21,6 +21,8 @@ namespace LasVegasMagicalShow
             Label_login.Text = "Logged in as: " + user;
             if (userlvl.ToString() == "Magician")
             {
+                Magician currentm = (Magician)user;
+                Userinfo.Text = "<li> Name: " + currentm.Name + "</li>" + "<li> Level: " + userlvl.ToString() + "</li>" + "<li> Password: " + currentm.Password + "</li>";
                 for (int i = 0; i < allusers.Count; i++)
                 {
                     if (allusers[i].GetType().Name == "Magician")
@@ -31,29 +33,18 @@ namespace LasVegasMagicalShow
             }
             else
             {
+                Staff currents = (Staff)user;
+                Userinfo.Text = "<li> Name: " + currents.Name + "</li>" + "<li> Level: " + userlvl.ToString() + "</li>" + "<li> Password: " + currents.Password + "</li>" + "<li> Salary: " + currents.Salary + "</li>";
+
                 foreach (var user in allusers)
                 {
                     ListBoxUsers.Items.Add(user.ToString());
                 }
             }
-            
-            
-            // Be able to edit info. 
-            // If magician
-            // Be able to edit favorite tricks
-
-            // Be able to see other people. 
-            // If level == Magician
-            // Only see magicians. / Hide staff.
-
-
-            // Else level == Staff
-            // Be able to see both staff and magicians.
         }
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            allusers = (ArrayList)Application["users"];
             for (int i = 0; i < allusers.Count; i++)
             {
                 if (allusers[i].ToString() == user.ToString())
@@ -72,6 +63,7 @@ namespace LasVegasMagicalShow
                         Staff s = (Staff)allusers[i];
                         s.Name = TextBoxName.Text;
                         s.Password = TextBoxPass.Text;
+                        s.Salary = Convert.ToInt32(TextBoxSal.Text);
                         user = s;
                         Session["currentUser"] = user;
                         Response.Redirect("Admin.aspx");
